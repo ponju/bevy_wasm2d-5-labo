@@ -1,11 +1,13 @@
-use bevy::prelude::{*};
+use bevy::{prelude::{*}};
 
-pub fn spawn_actor(mut commands:Commands,mut material_store:ResMut<Assets<ColorMaterial>>){
+pub fn spawn_actor(mut commands:Commands,mut material_store:ResMut<Assets<ColorMaterial>>,mut asset_server:ResMut<AssetServer>){
+    let texture_handle:Handle<Texture>=asset_server.load("images/bird.png"); //追加
+
     let material=ColorMaterial{
         color:Color::RED,
-        ..Default::default()
+        texture:Some(texture_handle)
     };
-    let handle=material_store.add(material);
+    let mat_handle=material_store.add(material);
 
     commands.spawn_bundle(
         SpriteBundle{
@@ -14,7 +16,7 @@ pub fn spawn_actor(mut commands:Commands,mut material_store:ResMut<Assets<ColorM
                 size:Vec2::new(32.,32.),
                 ..Default::default()
             },
-            material:handle,
+            material:mat_handle,
             ..Default::default()
         }
     );
