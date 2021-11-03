@@ -1,0 +1,12 @@
+{
+  "name": "bevy_wasm2d_basis",
+  "version": "0.1.0",
+  "files": [
+    "bevy_wasm2d_basis_bg.wasm",
+    "bevy_wasm2d_basis.js",
+    "bevy_wasm2d_basis.d.ts"
+  ],
+  "module": "bevy_wasm2d_basis.js",
+  "types": "bevy_wasm2d_basis.d.ts",
+  "sideEffects": false
+}
