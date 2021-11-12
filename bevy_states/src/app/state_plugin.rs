@@ -2,8 +2,8 @@ use bevy::{core::{Time, Timer}, prelude::{Entity, IntoSystem, Plugin, Query, Res
 
 use super::setup::{self, SceneDescription, SceneHeader};
 
-pub struct PrototypeScenePlugin;
-impl Plugin for PrototypeScenePlugin{
+pub struct SwitchStatePlugin;
+impl Plugin for SwitchStatePlugin{
     fn build(&self, app: &mut bevy::prelude::AppBuilder) {
         app
             .add_startup_system(setup::setup.system())

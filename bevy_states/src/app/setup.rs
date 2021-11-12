@@ -42,12 +42,6 @@ pub fn setup(mut commands:Commands,mut color_materials:ResMut<Assets<ColorMateri
                 TextBundle{
                     text:Text{
                         alignment:TextAlignment { vertical: VerticalAlign::Center, horizontal: HorizontalAlign::Center },
-                        sections:vec![
-                            TextSection{
-                                value:"hello:".to_string(),
-                                style:text_style.clone()
-                            }
-                        ],
                         ..Default::default()
                     },
                     ..Default::default()
@@ -57,12 +51,6 @@ pub fn setup(mut commands:Commands,mut color_materials:ResMut<Assets<ColorMateri
                 TextBundle{
                     text:Text{
                         alignment:TextAlignment { vertical: VerticalAlign::Center, horizontal: HorizontalAlign::Center },
-                        sections:vec![
-                            TextSection{
-                                value:"hello".to_string(),
-                                style:text_style.clone()
-                            }
-                        ],
                         ..Default::default()
                     },
                     ..Default::default()

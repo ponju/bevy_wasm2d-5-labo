@@ -1,7 +1,7 @@
 use bevy::{prelude::*, render::render_graph::Stages};
 
 mod setup; // app配下に uiモジュールを作っています。
-mod scene_plugin;
+mod state_plugin;
 
 pub fn run(){
     let mut app=App::build();
@@ -16,7 +16,7 @@ pub fn run(){
         ..Default::default()
     })
     .add_plugins(DefaultPlugins)
-    .add_plugin(scene_plugin::PrototypeScenePlugin)
+    .add_plugin(state_plugin::SwitchStatePlugin)
     .add_startup_system(camera_setup.system());
     
     // when building for Web, use WebGL2 rendering
