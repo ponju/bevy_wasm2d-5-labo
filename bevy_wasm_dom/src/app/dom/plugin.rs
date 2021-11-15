@@ -1,8 +1,14 @@
 use bevy::prelude::*;
+use super::{enviroment, ui};
 pub struct DomSpyPlugin;
 impl Plugin for DomSpyPlugin{
     fn build(&self, app: &mut AppBuilder) {
-        // app
+        //setup
+        app
+        .add_startup_system(enviroment::camera_setup.system())
+        .add_startup_system(ui::generate_ui.system());
+        //spy
+        app.add_system(watch_dom.system());
     }
 }
 
