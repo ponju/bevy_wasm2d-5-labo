@@ -1,3 +1,5 @@
+use std::default;
+
 use bevy::prelude::*;
 
 use super::plugin::{ForSelector, ForSlider, ForTextbox};
@@ -9,11 +11,20 @@ pub fn generate_ui(mut commands:Commands,mut color_materials:ResMut<Assets<Color
         font:font.clone(),
         font_size:48.
     };
+    let element_style=Style{
+        margin:Rect::<Val>{
+            left:Val::Px(8.),
+            right:Val::Px(8.),
+            top:Val::Px(8.),
+            bottom:Val::Px(8.),
+        }
+        ,..Default::default()
+    };
     commands.insert_resource(text_style.clone());
     commands.insert_resource(Time::default());
     commands.insert_resource(Timer::from_seconds(10.,true));
     commands.spawn_bundle(ImageBundle{
-        material:color_materials.add(ColorMaterial::color(Color::RED)),
+        material:color_materials.add(ColorMaterial::color(Color::SEA_GREEN)),
         style:
             Style{
                 display:Display::Flex,
@@ -38,8 +49,14 @@ pub fn generate_ui(mut commands:Commands,mut color_materials:ResMut<Assets<Color
                 TextBundle{
                     text:Text{
                         alignment:TextAlignment { vertical: VerticalAlign::Center, horizontal: HorizontalAlign::Center },
-                        ..Default::default()
+                        sections:vec![
+                            TextSection{
+                                style:Default::default(),
+                                value:Default::default()
+                            }
+                        ]
                     },
+                    style:element_style.clone(),
                     ..Default::default()
                 }
             ).insert(ForTextbox);
@@ -47,8 +64,14 @@ pub fn generate_ui(mut commands:Commands,mut color_materials:ResMut<Assets<Color
                 TextBundle{
                     text:Text{
                         alignment:TextAlignment { vertical: VerticalAlign::Center, horizontal: HorizontalAlign::Center },
-                        ..Default::default()
+                        sections:vec![
+                            TextSection{
+                                style:Default::default(),
+                                value:Default::default()
+                            }
+                        ]
                     },
+                    style:element_style.clone(),
                     ..Default::default()
                 }
             ).insert(ForSlider);
@@ -56,8 +79,14 @@ pub fn generate_ui(mut commands:Commands,mut color_materials:ResMut<Assets<Color
                 TextBundle{
                     text:Text{
                         alignment:TextAlignment { vertical: VerticalAlign::Center, horizontal: HorizontalAlign::Center },
-                        ..Default::default()
+                        sections:vec![
+                            TextSection{
+                                style:Default::default(),
+                                value:Default::default()
+                            }
+                        ]
                     },
+                    style:element_style.clone(),
                     ..Default::default()
                 }
             ).insert(ForSelector);

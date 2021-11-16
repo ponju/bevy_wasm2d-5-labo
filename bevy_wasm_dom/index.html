@@ -5,11 +5,17 @@
 </head>
 
 <body>
-    
-    <canvas id="bevy_app"></canvs>
+    <input id="text_box" type="text">
+    <input id="slider" type="range" min="0" max="100">
+    <select id="selector" name="hoge">
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+    </select>
+    <canvas id="bevy_app"></canvas>
         <script type="module">
-            import init from "./bevy_wasm2d_basis.js";
-            init("./bevy_wasm2d_basis_bg.wasm").then(function (wasm) {
+            import init from "./bevy_wasm_dom.js";
+            init("./bevy_wasm_dom_bg.wasm").then(function (wasm) {
                 wasm.run();
             });
         </script>

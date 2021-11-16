@@ -623,6 +623,7 @@ dependencies = [
  "getrandom",
  "rand",
  "wasm-bindgen",
+ "web-sys",
 ]
 
 [[package]]
